@@ -5,12 +5,12 @@ import { WEATHER_API_KEY, WEATHER_API_URL } from './api';
 import { useState } from 'react';
 import Forecast from './components/forecast/forecast';
 
-function App() {
+function App() {  
 
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
 
-  const handleOnSearchChange = (searchData) => {
+  const handleOnSearchChange = (searchData) => { 
     const [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
@@ -25,7 +25,7 @@ function App() {
         setForecast({ city: searchData.label, ...forecastResponse });
       })
       .catch((error) => console.log(error))
-  }
+ }
 
   console.log(forecast);
 
